@@ -1,26 +1,18 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
+import KinkekaardiEmail from "../components/KinkekaardiEmail";
 
 function Kinkekaart() {
   // Reacti HOOK
   const [summa, setSumma] = useState(20); // --> need mis lähevad HTML-i ja muutuvad seal
   const [kogus, setkogus] = useState(1);
-  const emailRef = useRef(); //inputiga ära sidumiseks
-  const [sonum, setSonum] = useState(""); // HTMLi, mis on muutuvas seisundis
-  const sisesta = () => { // onClick
-if (emailRef.current.value.includes("@") === false) {
-setSonum("Ei saa lisada ilma @ märgita!")
-} else {
-  setSonum("Email lisatud!");
-}
-
-  }
+ 
 
 
   return (
     <div>
-      <button onClick={() => setSumma(20)}>20€</button>
-      <button onClick={() => setSumma(50)}>50€</button>
-      <button onClick={() => setSumma(100)}>100€</button>
+      <button className={summa === 20 ? "summa-aktiivne" : undefined} onClick={() => setSumma(20)}>20€</button>
+      <button className={summa === 50 ? "summa-aktiivne" : undefined} onClick={() => setSumma(50)}>50€</button>
+      <button className={summa === 100 ? "summa-aktiivne" : undefined} onClick={() => setSumma(100)}>100€</button>
       <div> Kinkekaart {summa}€ </div>
 
       <br /><br />
@@ -35,10 +27,7 @@ setSonum("Ei saa lisada ilma @ märgita!")
 
       <br /><br />
 
-      <div>{sonum}</div>
-      <label htmlFor="email">E-mail</label> <br />
-      <input ref={emailRef} id="email" type="text" /> <br />
-      <button onClick={sisesta}>Sisesta</button>
+      <KinkekaardiEmail />
 
     </div>
   )

@@ -19,3 +19,20 @@
   transform: scale(110%);
 }
 
+.summa-aktiivne {
+  color: rgb(227 6 140);
+  border: 1px solid rgb(227 6 140);
+}
+
+.summa-aktiivne:hover {
+  border-color: rgb(227 6 140);
+}
+
+.keel-aktiivne {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.linn-aktiivne {
+  background-color:aqua;
+}

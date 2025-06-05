@@ -9,6 +9,7 @@ import Esindused from './pages/Esindused'
 import Seaded from './pages/Seaded'
 import NotFound from './pages/NotFound'
 import Menu from './components/Menu'
+import Kalkulaator from './pages/Kalkulaator'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,6 +29,7 @@ function App() {
           <Route path="/osta-kinkekaart" element={ <Kinkekaart/> } />
           <Route path="/esindused" element={ <Esindused/> } />
           <Route path="/seaded" element={ <Seaded/> } />
+          <Route path="/kalkulaator" element={< Kalkulaator />} />
           <Route path="/*" element={ <NotFound/> } /> 
         </Routes>
         
