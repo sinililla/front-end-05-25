@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --sinine: #4A7E98;
+    --sinine2: #2B94C7;
+    --offwhite: #FAF9F6;
+    --tavatekst-font-size: 16px;
+    --pais2-font-size: 20px;
+    --pais3-font-size: 24px;
+}
+
+body {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-family: "Montserrat", sans-serif;
+}
+
+h3 {
+    font-size: var(--pais3-font-size);
+    font-weight: normal;
+}
+
+.header {
+    background-color: var(--sinine);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 70px;
+    gap: 15%;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.otsing {
+    display: inline-block;
+    position: relative;
+    max-width: 400px;
+    flex: 1;
+
+}
+
+.kast {
+    height: 40px;
+    min-width: 200px;
+}
+
+.logo {
+    height: 30px;
+    margin: 10px;
+}
+
+.luup {
+    position: absolute;
+    left: 170px;
+    top: 50%;
+    height: 20px;
+    width: 20px;
+    transform: translateY(-50%);
+}
+
+button {
+    height: 40px;
+    width: 200px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: var(--sinine2);
+    color: var(--offwhite);
+
+}
+
+button:hover {
+    background-color: var(--sinine);
+
+}
+
+.pakkumised {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+    margin-bottom: 44px;
+    gap: 5%;
+}
+
+.kaart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 19px;
+    width: 250px;
+    background-color: var(--offwhite);
+    border-radius: 10px;
+    gap: 31px;
+}
+
+.info {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nimi {
+    text-align: left;
+}
+
+.hind {
+    text-align: right;
+}
+
+.nool:hover {
+    scale: 150%;
+}
+
+.tagasiside_sisu {
+    max-width: 280px;
+}
+
+.tagasiside_1 {
+    width: 50%;
+    background-color: var(--sinine);
+    display: flex;
+    gap: 15%;
+    height: 270px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tekstike {
+    color: var(--offwhite);
+}

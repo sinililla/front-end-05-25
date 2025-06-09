@@ -15,6 +15,16 @@ p {
   
 }
 
+.side-title {
+  transform:rotate(90deg);
+}
+
+.main {
+  background-color: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 20px;
+  border: 3px solid blue;
+}
 
 .main-picture {
   height: 200px;

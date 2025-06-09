@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <>
+    <div className="main">
     <div className="intro">
       <img className="main-picture" src="https://img.freepik.com/premium-photo/portrait-funny-cat-sunglasses-blue-float-beach-summer-concept-ai-generative_123827-24579.jpg" alt="" />
       <h2>Terekest, see on minu näidisportfoolio front-end kursuse jaoks.</h2>
@@ -28,7 +29,7 @@ function App() {
       <span>E-mail</span>
     </a>
     <div className="rectangle"></div>
-    
+    <div className="side-title">Kaia</div>
     
 
     <Routes>
@@ -38,7 +39,7 @@ function App() {
       <Route path="courses" element={ <Courses /> } />
     </Routes>
 
-    
+    </div>
     </>
   )
 }
