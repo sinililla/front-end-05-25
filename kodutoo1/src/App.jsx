@@ -1,4 +1,7 @@
 import './App.css'
+import {Link, Route, Routes} from 'react-router-dom'
+import Avaleht from './pages/Avaleht'
+import Books from './pages/Books'
 
 
 function App() {
@@ -6,7 +9,7 @@ function App() {
 
   return (
     <>
-      <img className= "RightCorner" src="https://miro.medium.com/v2/resize:fit:395/0*yt7Mwvdb8e08xxhk.jpg" alt="" />
+      {/* <img className= "RightCorner" src="https://miro.medium.com/v2/resize:fit:395/0*yt7Mwvdb8e08xxhk.jpg" alt="" />
       <button>Nupp</button>
       <p><i>Sinine tekst</i></p>
       <h4><b>Roheline tekst</b></h4>
@@ -49,7 +52,20 @@ function App() {
         </tr>
       </table>
       <br></br>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/tlTdbc5byAs?si=g0FBHW3C5aaNzWxz"></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/tlTdbc5byAs?si=g0FBHW3C5aaNzWxz"></iframe> */}
+
+      <Link to="/">
+        <button>Avaleht</button>
+      </Link>
+
+      <Link to="/books">
+        <button>Books</button>
+      </Link>
+
+      <Routes>
+        <Route path="/" element={<Avaleht />} />
+        <Route path="/books" element={<Books />} />
+      </Routes>
 
     </>
   )

@@ -29,7 +29,7 @@ function App() {
       <span>E-mail</span>
     </a>
     <div className="rectangle"></div>
-    <div className="side-title">Kaia</div>
+
     
 
     <Routes>

@@ -15,9 +15,6 @@ p {
   
 }
 
-.side-title {
-  transform:rotate(90deg);
-}
 
 .main {
   background-color: rgb(255, 255, 255);
@@ -101,6 +98,13 @@ p {
   
 }
 
+.button-active {
+  background-color: aqua;
+}
+
+.button-inactive {
+  background-color: white;
+}
 
 .tagasi {
   background-color: rgb(237, 250, 255);

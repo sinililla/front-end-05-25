@@ -10,10 +10,10 @@ function Courses() {
         </Link>
         <br />
       <div>Kursuste sisu</div>
-      <button onClick = {() => uuendaKursus("Udemy")}>Udemy</button>
-      <button onClick = {() => uuendaKursus("Coursera")}>Coursera</button>
-      <button onClick = {() => uuendaKursus("Codeacademy")}>Codeacademy</button>
-      <button onClick = {() => uuendaKursus("Udacity")}>Udacity</button>
+      <button className={kursus === "Udemy" ? "button-active" : "button-inactive"} onClick = {() => uuendaKursus("Udemy")}>Udemy</button>
+      <button className={kursus === "Coursera" ? "button-active" : "button-inactive"} onClick = {() => uuendaKursus("Coursera")}>Coursera</button>
+      <button className={kursus === "Codeacademy" ? "button-active" : "button-inactive"} onClick = {() => uuendaKursus("Codeacademy")}>Codeacademy</button>
+      <button className={kursus === "Udacity" ? "button-active" : "button-inactive"} onClick = {() => uuendaKursus("Udacity")}>Udacity</button>
 
       <br />
       {kursus === "Valimata" && <div>Tee valik</div>}

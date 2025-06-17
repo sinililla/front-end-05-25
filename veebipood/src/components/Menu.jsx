@@ -19,16 +19,16 @@ function Menu() {
         <button>Kinkekaardid</button>
         </Link>
 
-        <Link to="/esindused">
-        <button>Esindused</button>
-        </Link>
-
         <Link to="/seaded">
         <button>Seaded</button>
         </Link>
 
         <Link to="/kalkulaator">
           <button>Kalkulaator</button>
+        </Link>
+
+        <Link to="/arrays-home">
+          <button>Array-d</button>
         </Link>
     </div>
   )
