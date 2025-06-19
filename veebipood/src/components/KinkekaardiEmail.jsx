@@ -9,12 +9,25 @@ function KinkekaardiEmail() {
     if (emailRef.current.value.includes("@") === false) {
       setSonum("Ei saa lisada ilma @ märgita!");
       toast.error("Ei saa lisada ilma @ märgita!");
-    } else {
-      setSonum("Email lisatud!");
-      toast.success("Email lisatud!");
+      return;
+    } 
+
+    // Regex101.com --> saan testida regexit
+    // regex --> regular expression / regulaaravaldis - teksti kontrollimiseks
+    // a-z --> väikesed tähed A-Z --> suured tähed 0-9 --> numbrid
+    // ._%+- --> need märgid on lubatud
+    // []+ --> neid võib panna lõputult
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailRegex.test(emailRef.current.value) === false) {
+      setSonum("Email on valel kujul!");
+      toast.error("Email on valel kujul!");
+      return;
     }
 
+      setSonum("Email lisatud!");
+      toast.success("Email lisatud!");
   }
+
   return (
     <div>
       <div>{sonum}</div>

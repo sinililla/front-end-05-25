@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ArraysHome from "./ArraysHome";
 
 
 function Tooted() {
@@ -60,6 +61,7 @@ function Tooted() {
 
   return (
     <div>
+      <ArraysHome />
       <button onClick={sortAZ}>Sorteeri A-Z</button>
       <button onClick={sortZA}>Sorteeri Z-A</button>
       <button onClick={Kasvavalt}>Tähed kasvavalt</button>

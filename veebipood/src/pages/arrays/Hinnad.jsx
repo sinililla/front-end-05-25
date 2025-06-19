@@ -1,7 +1,9 @@
 import { useState } from "react"
+import ArraysHome from "./ArraysHome";
+import hinnadFailist from "../../data/hinnad.json";
 
 function Hinnad() {
-  const [hinnad, setHinnad] = useState([9, 123, 54, 515, 78, 23, 31, 89, 44]);
+  const [hinnad, setHinnad] = useState(hinnadFailist.slice());
 
   function sorteeriKasvavalt() {
     hinnad.sort((a, b) => a - b );
@@ -14,21 +16,22 @@ function Hinnad() {
   }
 
   function filtreeriSuuremadKui100() {
-    const vastus = hinnad.filter(hind => hind > 100);
+    const vastus = hinnadFailist.filter(hind => hind > 100);
     setHinnad(vastus);
   }
 
    function filtreeriVaiksemadKui50() {
-    const vastus = hinnad.filter(hind => hind < 50);
+    const vastus = hinnadFailist.filter(hind => hind < 50);
     setHinnad(vastus);
   }
 
   function reset() {
-    setHinnad([9, 123, 54, 515, 78, 23, 31, 89, 44]);
+    setHinnad(hinnadFailist.slice());
   }
 
   return (
     <div>
+      <ArraysHome />
         <br />
         <button onClick={reset}>Reset</button>
         <div>Kokku {hinnad.length} tk</div>

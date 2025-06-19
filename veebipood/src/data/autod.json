@@ -1,0 +1,8 @@
+[
+    {"nimi" : "Ferrari", "hind" : 105000, "aktiivne" : true, "pilt" : "https://www.auto-salon-singen.de/generate/vehicle/6570ef154bc34/ferrari_f8_3e211d-1600x1200_crop.jpg"},
+    {"nimi" : "BMW", "hind" : 45000, "aktiivne" : true, "pilt" : "https://www.carsome.my/news/wp-content/uploads/2023/07/BMW-M-Cars-696x464.jpg"},
+    {"nimi" : "Lamborghini", "hind" : 205000, "aktiivne" : true, "pilt" : "https://t3.ftcdn.net/jpg/04/06/40/40/360_F_406404058_NEhE49oNHXA4DdgA45S17TQbIcnSLR5Y.jpg"},
+    {"nimi" : "Mercedes", "hind" : 95000, "aktiivne" : true, "pilt" : "https://t3.ftcdn.net/jpg/03/93/35/92/360_F_393359225_9DIhQvnQ8naewj9w0OkD2Ve57QQCtcNs.jpg"},
+    {"nimi" : "Audi", "hind" : 65000, "aktiivne" : true, "pilt" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Audi_e-tron_%28Edit1%29.jpg/1024px-Audi_e-tron_%28Edit1%29.jpg"},
+    {"nimi" : "Tesla", "hind" : 85000, "aktiivne" : true, "pilt" : "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2019_Tesla_Model_3_Performance_AWD_Front.jpg/1280px-2019_Tesla_Model_3_Performance_AWD_Front.jpg"}
+]

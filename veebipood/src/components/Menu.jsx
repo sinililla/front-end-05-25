@@ -30,6 +30,10 @@ function Menu() {
         <Link to="/arrays-home">
           <button>Array-d</button>
         </Link>
+
+        <Link to="/halda-home">
+          <button>Array-sid lisama ja kustutama</button>
+        </Link>
     </div>
   )
 }

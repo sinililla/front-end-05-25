@@ -2,6 +2,7 @@ import './App.css'
 import {Link, Route, Routes} from 'react-router-dom'
 import Avaleht from './pages/Avaleht'
 import Books from './pages/Books'
+import Numbrid from './pages/Numbrid'
 
 
 function App() {
@@ -62,9 +63,14 @@ function App() {
         <button>Books</button>
       </Link>
 
+      <Link to="/numbrid">
+        <button>Numbrid</button>
+      </Link>
+
       <Routes>
         <Route path="/" element={<Avaleht />} />
         <Route path="/books" element={<Books />} />
+        <Route path="/numbrid" element={<Numbrid />} />
       </Routes>
 
     </>

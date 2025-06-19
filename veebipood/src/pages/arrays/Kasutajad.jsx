@@ -1,7 +1,10 @@
+import ArraysHome from "./ArraysHome"
 
 function Kasutajad() {
   return (
-    <div>Kasutajad</div>
+    <div>
+      <ArraysHome />
+    </div>
   )
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ArraysHome from "./ArraysHome";
 
 function Tootajad() {
   const [tootajad, setTootajad] = useState(["Käsna-Kalle", "Patrick", "Sandy", "Kalmaari Kalmer","Hr Krabi", "Pärl", "Larry", "Gary", "Plankton", "Karen", "Stu", "Maiken", "Priit"]);
@@ -29,7 +30,8 @@ function Tootajad() {
   }
   // sorteerib sõnade arvu järgi, leidsin internetist
   const sonadeArv = () => {
-    tootajad.sort((a, b) => a.trim().split(/\s+/).length - b.trim().split(/\s+/).length);
+    // tootajad.sort((a, b) => a.trim().split(/\s+/).length - b.trim().split(/\s+/).length);
+     tootajad.sort((a, b) => a.trim().split(" ").length - b.trim().split(" ").length);
     setTootajad(tootajad.slice());
   }
 
@@ -69,6 +71,7 @@ function Tootajad() {
 
   return (
     <div>
+      <ArraysHome />
       <button onClick={sortAZ}>Sorteeri A-Z</button>
       <button onClick={sortZA}>Sorteeri Z-A</button>
       <button onClick={sortKasvavalt}>Tähed kasvavalt</button>
