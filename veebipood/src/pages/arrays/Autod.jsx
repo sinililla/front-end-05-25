@@ -1,6 +1,7 @@
 import { useState } from "react"
 import ArraysHome from "./ArraysHome";
 import autodFailist from "../../data/autod.json"
+import { Link } from "react-router-dom";
 
 function Autod() {
   const [tooted, setTooted] = useState(autodFailist.slice());
@@ -44,6 +45,19 @@ function Autod() {
     setTooted(tooted.slice());
   }
 
+  // .push(MIDA) --> lõppu lisamiseks
+  // .splice(MITMENDAT, TK) --> kustutamiseks
+  // .sort((a, b) => PLUSS/MIINUS) --> kui on plussmärk, siis keerab nende kahe järjekorra teistpidi 
+  // .filter(element => TRUE/FALSE ) --> kui on true siis jätab alles
+  // .map(element => MILLEGA_ASENDADA) --> iga kord asendatakse see element uue elemendiga
+
+   function suurteksTahtedeks() {
+    // const vastus = autodFailist.map(toode => ({"nimi": toode.nimi.toUpperCase(), "hind" : toode.hind, "pilt" : toode.pilt, "aktiivne" : toode.aktiivne}));
+    const vastus = autodFailist.map(toode => ({...toode, "nimi": toode.nimi.toUpperCase()}));
+    setTooted(vastus);
+
+  }
+
   return (
     <div>
       <ArraysHome />
@@ -56,11 +70,15 @@ function Autod() {
         <br />
         <button onClick={filtreeriIgaLoppevad}>Jäta alles i-ga lõppevad</button>
         <button onClick={filtreeriErSisaldavad}>Jäta alles er sisaldavad</button>
+        <button onClick={suurteksTahtedeks}>Muuda kõigil tähed suurteks</button>
         {tooted.map(toode => 
-        <div key={toode}>
+        <div key={toode.nimi}>
           <div>{toode.nimi}</div>
           <div>{toode.hind}</div>
           <div><img className="pilt" src={toode.pilt} alt="" /></div>
+          <Link to={"/auto/" + toode.nimi}>
+            <button>Vt lähemalt</button>
+          </Link>
           </div>)}
     </div>
   )

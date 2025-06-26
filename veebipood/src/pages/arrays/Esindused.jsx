@@ -1,10 +1,11 @@
 import { useState } from "react"
 import ArraysHome from "./ArraysHome";
 import esindusedFailist from "../../data/esindused.json"
+import { Link } from "react-router-dom";
 
 function Esindused() {
   const [linn, setLinn] = useState("Tallinn");
-  const tallinnaEsindused = esindusedFailist;
+  const tallinnaEsindused = esindusedFailist.slice();
 
   return (
     <div>
@@ -16,16 +17,23 @@ function Esindused() {
       <button className={linn === "Pärnu" ? "linn-aktiivne" : undefined} onClick={() => setLinn("Pärnu")}>Pärnu</button>
 
       <br /><br /> 
+
       {linn ==="Tallinn" && 
-      <div>
+      <>
         {/* <div>Ülemiste</div>
         <div>Rocca al Mare</div>
         <div>Magistrali</div>
         <div>Vesse</div>
         <div>Kristiine</div>
         <div>Järveotsa</div> */}
-        {tallinnaEsindused.map(esindus => <div key={esindus}>{esindus}</div>)}
-      </div>}
+        {tallinnaEsindused.map(esindus => 
+        <div key={esindus.keskus}>
+          {esindus.keskus}
+          <Link to={"/esindus/" + esindus.keskus}>
+            <button>Vt kontaktandmeid</button>
+          </Link>
+          </div>)}
+      </>}
 
       {linn === "Tartu" && 
       <div>

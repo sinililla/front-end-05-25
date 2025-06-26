@@ -2,26 +2,36 @@ import { useState } from "react";
 
 function Meist() {
   const [ kontakt, n2itaKontakt ] = useState("");
+  const [valitud, setValitud] = useState("");
+
+  const tootajad = [
+    {nimi: "Arvo Pärt", ala: "Uudisklippide taustamuusika", telefon: "+31312312"},
+    {nimi: "Kelly Sildaru", ala: "Püstolreporter", telefon: "+313124123"},
+    {nimi: "Edward von Lõngus", ala: "Uudiste kujundamine", telefon: "+3131231231"},
+    {nimi: "Kerli Kõiv", ala: "Välisturgude spetsialist", telefon: "+312312312"}
+  ]
+
+  const V6taYhendust = (tootaja) => {
+    n2itaKontakt(tootaja.telefon);
+    setValitud(tootaja.nimi);
+
+  }
+
   return (
     <div>
       <div>See on meist leht, nähtav localhost:5173/meist aadressil.</div>
       <div>Meie töötajad:</div>
+      {/* <div>Valitud töötaja: {valitud}</div> */}
       <br /> 
-      <div>Arvo Pärt</div>
-      <div>Uudisklippide taustamuusika</div>
-      <button onClick = {() => n2itaKontakt("+31312312")}>Võta ühendust</button>
-      <br /> <br />
-      <div>Kelly Sildaru</div>
-      <div>Püstolreporter</div>
-      <button onClick = {() => n2itaKontakt("+313124123")}>Võta ühendust</button>
-      <br /> <br />
-      <div>Edward von Lõngus</div>
-      <div>Uudiste kujundamine</div>
-      <button onClick = {() => n2itaKontakt("+3131231231")}>Võta ühendust</button>
-      <br /> <br />
-      <div>Kerli Kõiv</div>
-      <div>Välisturgude spetsialist</div>  
-      <button onClick = {() => n2itaKontakt("+312312312")}>Võta ühendust</button>
+      <div>
+        {tootajad.map(tootaja =>
+        <div className={tootaja.nimi === valitud ? "valitud" : undefined}>
+        <div>{tootaja.nimi}</div>
+        <div>{tootaja.ala}</div>  
+        <button onClick = {() => V6taYhendust(tootaja)}>Võta ühendust</button>
+        <br /><br />
+        </div>)}
+      </div>
       <br /><br />
       {kontakt !== "" && <div>Tema kontakt: {kontakt}</div>}
     </div>

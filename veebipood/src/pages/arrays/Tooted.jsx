@@ -1,61 +1,62 @@
 import { useState } from "react";
 import ArraysHome from "./ArraysHome";
+import tootedFailist from "../../data/tooted.json"
 
 
 function Tooted() {
-  const [joogid, setJoogid] = useState(["Coca", "Fanta", "Sprite", "Vichy", "Red Bull", "Aura", "Monster Energy", "Värska", "Tarhun", "Dr. Pepper"]);
+  const [joogid, setJoogid] = useState(tootedFailist.slice());
 
   function reset() {
-    setJoogid(["Coca", "Fanta", "Sprite", "Vichy", "Red Bull", "Aura", "Monster Energy", "Värska", "Tarhun", "Dr. Pepper"]);
+    setJoogid(tootedFailist.slice());
   }
 
   const sortAZ = () => {
-    joogid.sort((a, b) => a.localeCompare(b));
+    joogid.sort((a, b) => a.nimi.localeCompare(b.nimi));
     setJoogid(joogid.slice());
   }
 
   const sortZA = () => {
-    joogid.sort((a, b) => b.localeCompare(a));
+    joogid.sort((a, b) => b.nimi.localeCompare(a.nimi));
     setJoogid(joogid.slice());
   }
 
   const Kasvavalt = () => {
-    joogid.sort((a, b) => a.length - b.length);
+    joogid.sort((a, b) => a.nimi.length - b.nimi.length);
     setJoogid(joogid.slice());
   }
 
   const Kahanevalt = () => {
-    joogid.sort((a, b) => b.length - a.length);
+    joogid.sort((a, b) => b.nimi.length - a.nimi.length);
     setJoogid(joogid.slice());
   }
 
   const TeineTahtAZ = () => {
-    joogid.sort((a, b) => a[1].localeCompare(b[1]));
+    joogid.sort((a, b) => a.nimi[1].localeCompare(b.nimi[1]));
     setJoogid(joogid.slice());
   }
 
   function Kuni6Tahte() {
-    const vastus = joogid.filter(jook => jook.length < 6);
+    const vastus = tootedFailist.filter(jook => jook.nimi.length < 6);
     setJoogid(vastus);
   }
 
   function KuueTahelised() {
-    const vastus = joogid.filter(jook => jook.length === 6);
+    const vastus = tootedFailist.filter(jook => jook.nimi.length === 6);
     setJoogid(vastus);
   }
 
   function lopusA() {
-    const vastus = joogid.filter(jook => jook.endsWith("a"));
+    const vastus = tootedFailist.filter(jook => jook.nimi.endsWith("a"));
     setJoogid(vastus);
   }
 
   function algusesY() {
-    const vastus = joogid.filter(jook => jook.endsWith("y"));
+    const vastus = tootedFailist.filter(jook => jook.nimi.endsWith("y"));
     setJoogid(vastus);
   }
 
   function paarisArvTahti() {
-    const vastus = joogid.filter(jook => jook.length % 2 === 0);
+    const vastus = tootedFailist.filter(jook => jook.nimi.length % 2 === 0);
     setJoogid(vastus);
   }
 
@@ -67,7 +68,7 @@ function Tooted() {
       <button onClick={Kasvavalt}>Tähed kasvavalt</button>
       <button onClick={Kahanevalt}>Tähed kahanevalt</button>
       <button onClick={TeineTahtAZ}>Teine täht A-Z</button>
-      {joogid.map(jook => <div key={jook}>{jook}</div>)}
+      {joogid.map(jook => <div key={jook}>{jook.nimi}</div>)}
       <div>Tooteid on {joogid.length} tk.</div>
       <button onClick={Kuni6Tahte}>Kuni 6 tähelised</button>
       <button onClick={KuueTahelised}>Täpselt 6 tähelised</button>

@@ -1,26 +1,35 @@
 import { Link } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 
 function Menu() {
+
+  const { t, i18n } = useTranslation();
+  // return <h1>{t('Welcome to React')}</h1>
+
+
   return (
     <div>
+        <button onClick={() => i18n.changeLanguage("en")}>English</button>
+        <button onClick={() => i18n.changeLanguage("et")}>Eesti</button>
+
         <Link to="/">
           <img className="pilt" src="https://cdn.abcotvs.com/dip/images/15072349_071924-wtvd-worlds-largest-duck.jpg" alt="hiiglaslik part" />
         </Link>
         
         <Link to="/ostukorv">
-        <button>Ostukorvi</button>
+        <button>{t("menu.cart")}</button>
         </Link>
 
         <Link to="/lisa-toode">
-        <button>Lisa toode</button>
+        <button>{t("menu.add-product")}</button>
         </Link>
 
         <Link to="/osta-kinkekaart">
-        <button>Kinkekaardid</button>
+        <button>{t("menu.giftcards")}</button>
         </Link>
 
         <Link to="/seaded">
-        <button>Seaded</button>
+        <button>{t("menu.settings")}</button>
         </Link>
 
         <Link to="/kalkulaator">

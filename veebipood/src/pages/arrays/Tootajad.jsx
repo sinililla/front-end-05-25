@@ -1,71 +1,72 @@
 import { useState } from "react";
 import ArraysHome from "./ArraysHome";
+import tootajadFailist from "../../data/tootajad.json"
 
 function Tootajad() {
-  const [tootajad, setTootajad] = useState(["Käsna-Kalle", "Patrick", "Sandy", "Kalmaari Kalmer","Hr Krabi", "Pärl", "Larry", "Gary", "Plankton", "Karen", "Stu", "Maiken", "Priit"]);
+  const [tootajad, setTootajad] = useState(tootajadFailist.slice());
 
   const sortAZ = () => {
-    tootajad.sort((a, b) => a.localeCompare(b));
+    tootajad.sort((a, b) => a.nimi.localeCompare(b.nimi));
     setTootajad(tootajad.slice());
   }
 
   const sortZA = () => {
-    tootajad.sort((a, b) => b.localeCompare(a));
+    tootajad.sort((a, b) => b.nimi.localeCompare(a.nimi));
     setTootajad(tootajad.slice());
   }
 
   const sortKasvavalt = () => {
-    tootajad.sort((a, b) => a. length - b.length);
+    tootajad.sort((a, b) => a.nimi.length - b.nimi.length);
     setTootajad(tootajad.slice());
   }
 
   const sortKahanevalt = () => {
-    tootajad.sort((a, b) => b. length - a.length);
+    tootajad.sort((a, b) => b.nimi.length - a.nimi.length);
     setTootajad(tootajad.slice());
   }
 
   const teineTahtAZ = () => {
-    tootajad.sort((a, b) => b[2].localeCompare(a[2]));
+    tootajad.sort((a, b) => a.nimi[1].localeCompare(b.nimi[1]));
     setTootajad(tootajad.slice());
   }
   // sorteerib sõnade arvu järgi, leidsin internetist
   const sonadeArv = () => {
     // tootajad.sort((a, b) => a.trim().split(/\s+/).length - b.trim().split(/\s+/).length);
-     tootajad.sort((a, b) => a.trim().split(" ").length - b.trim().split(" ").length);
+     tootajad.sort((a, b) => a.nimi.trim().split(" ").length - b.nimi.trim().split(" ").length);
     setTootajad(tootajad.slice());
   }
 
   function reset() {
-    setTootajad(["Käsna-Kalle", "Patrick", "Sandy", "Kalmaari Kalmer","Hr Krabi", "Pärl", "Larry", "Gary", "Plankton", "Karen", "Stu", "Maiken"]);
+    setTootajad(tootajadFailist);
   }
 
   function kolmTahte() {
-    const vastus = tootajad.filter(tootaja => tootaja.length === 3);
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi.length === 3);
     setTootajad(vastus);
   }
 
   function rohkemKui5Tahte() {
-    const vastus = tootajad.filter(tootaja => tootaja.length > 5);
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi.length > 5);
     setTootajad(vastus);
   }
 
   function sisaldabAi() {
-    const vastus = tootajad.filter(tootaja => tootaja.includes("ai"));
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi.includes("ai"));
     setTootajad(vastus);
   }
 
   function neljasTahtI() {
-    const vastus = tootajad.filter(tootaja => tootaja[3] === "i");
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi[3] === "i");
     setTootajad(vastus);
   }
 
   function algabM() {
-    const vastus = tootajad.filter(tootaja => tootaja[0] === "M");
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi[0] === "M");
     setTootajad(vastus);
   }
 
   function paarisArvTahti() {
-    const vastus = tootajad.filter(tootaja => tootaja.length % 2 === 0);
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi.length % 2 === 0);
     setTootajad(vastus);
   }
 
@@ -78,7 +79,7 @@ function Tootajad() {
       <button onClick={sortKahanevalt}>Tähed kahanevalt</button>
       <button onClick={teineTahtAZ}>Teine täht A-Z</button>
       <button onClick={sonadeArv}>Sorteeri sõnade arvu järgi</button>
-      {tootajad.map(tootaja => <div key={tootaja}>{tootaja}</div>)}
+      {tootajad.map(tootaja => <div key={tootaja}>{tootaja.nimi}</div>)}
       <button onClick={kolmTahte}>Filtreeri täpselt 3 tähelised</button>
       <button onClick={rohkemKui5Tahte}>Rohkem kui 5 tähelised</button>
       <button onClick={sisaldabAi}>"Ai" lühendit sisaldavad</button>

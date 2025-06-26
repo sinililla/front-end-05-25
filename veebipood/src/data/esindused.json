@@ -1,1 +1,8 @@
-["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]
+[
+    {"keskus" : "Ülemiste", "aadress" : "Suur-Sõjamäe 87", "tel" : 514123},
+    {"keskus" :"Rocca al Mare", "aadress" : "Loomaaia 12", "tel" : 515563},
+    {"keskus" :"Magistrali", "aadress" : "Mäe 32", "tel" : 514883},
+    {"keskus" :"Vesse", "aadress" : "Vesi 123", "tel" : 514333},
+    {"keskus" :"Kristiine","aadress" : "Endla 897", "tel" : 514753},
+    {"keskus" :"Järveotsa", "aadress" : "Järve 76", "tel" : 514323}
+]
