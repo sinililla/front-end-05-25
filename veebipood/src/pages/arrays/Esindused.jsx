@@ -1,15 +1,31 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import ArraysHome from "./ArraysHome";
 import esindusedFailist from "../../data/esindused.json"
 import { Link } from "react-router-dom";
 
 function Esindused() {
   const [linn, setLinn] = useState("Tallinn");
-  const tallinnaEsindused = esindusedFailist.slice();
+  const [tallinnaEsindused, setTallinnaEsindused] = useState(esindusedFailist.slice());
+  const otsingRef = useRef();
+
+
+  const otsi = () => {
+    const vastus = esindusedFailist.filter(esindus => esindus.keskus.includes(otsingRef.current.value));
+    setTallinnaEsindused(vastus);
+  }
+
+   function arvutaKokku() {
+    let summa = 0;
+    tallinnaEsindused.forEach(esindus => summa += esindus.keskus.length);
+    return summa;
+  }
+
 
   return (
     <div>
       <ArraysHome />
+      <div>Esinduste keskuste tähed kokku: {arvutaKokku()}</div>
+      <input ref={otsingRef} onChange={otsi} placeholder="Otsi esindust" type="text" />
       <div>Aktiivne linn: {linn}</div>
       <button className={linn === "Tallinn" ? "linn-aktiivne" : undefined} onClick={() => setLinn("Tallinn")}>Tallinn</button>
       <button className={linn === "Tartu" ? "linn-aktiivne" : undefined} onClick={() => setLinn("Tartu")}>Tartu</button>
@@ -17,6 +33,7 @@ function Esindused() {
       <button className={linn === "Pärnu" ? "linn-aktiivne" : undefined} onClick={() => setLinn("Pärnu")}>Pärnu</button>
 
       <br /><br /> 
+      
 
       {linn ==="Tallinn" && 
       <>

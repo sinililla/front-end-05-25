@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ArraysHome from "./ArraysHome";
 import tootajadFailist from "../../data/tootajad.json"
+import { Link } from "react-router-dom";
 
 function Tootajad() {
   const [tootajad, setTootajad] = useState(tootajadFailist.slice());
@@ -79,7 +80,13 @@ function Tootajad() {
       <button onClick={sortKahanevalt}>Tähed kahanevalt</button>
       <button onClick={teineTahtAZ}>Teine täht A-Z</button>
       <button onClick={sonadeArv}>Sorteeri sõnade arvu järgi</button>
-      {tootajad.map(tootaja => <div key={tootaja}>{tootaja.nimi}</div>)}
+      {tootajad.map(tootaja => 
+      <div key={tootaja.nimi}>
+        <div>{tootaja.nimi}</div>
+        <div><Link to={"/tootaja/" + tootaja.nimi}>
+            <button>Vt lähemalt</button>
+          </Link></div>
+        </div>)}
       <button onClick={kolmTahte}>Filtreeri täpselt 3 tähelised</button>
       <button onClick={rohkemKui5Tahte}>Rohkem kui 5 tähelised</button>
       <button onClick={sisaldabAi}>"Ai" lühendit sisaldavad</button>

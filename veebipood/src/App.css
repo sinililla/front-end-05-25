@@ -36,3 +36,16 @@
 .linn-aktiivne {
   background-color:aqua;
 }
+
+table {
+  margin: auto;
+  background-color: lightgray;
+}
+
+th, td {
+  border: 1px solid black;
+}
+
+.red {
+  color: red;
+}

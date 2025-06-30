@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import ArraysHome from "./ArraysHome";
 import hinnadFailist from "../../data/hinnad.json";
 import { Link } from "react-router-dom";
 
 function Hinnad() {
   const [hinnad, setHinnad] = useState(hinnadFailist.slice());
+  const otsingRef = useRef();
 
   function sorteeriKasvavalt() {
     hinnad.sort((a, b) => a - b );
@@ -30,11 +31,44 @@ function Hinnad() {
     setHinnad(hinnadFailist.slice());
   }
 
+  const otsi = () => {
+    const vastus = hinnadFailist.filter(hind => hind.number.toString().includes(otsingRef.current.value));
+    setHinnad(vastus);
+  }
+
+  const arvutaKokku = () => {
+    // variant 1
+    let summa = 0;
+    // for (let index = 0; index < hinnad.length; index++) {
+    //   summa = summa + hinnad[index].number;
+    // }
+
+    // // variant 2
+    // for (let hind of hinnad) {
+    //   summa = summa + hind.number;
+    // }
+    
+    // variant 3
+    hinnad.forEach(hind => summa = summa + hind.number);
+    return summa; // return väljastab midagi HTMLi
+  }
+
+  // onClick={reset} onClick={otsi} kui midagi kaasa ei saada
+  // onClick={() => kustuta(index)} kui saadan midagi kaasa
+
+  // kui tahan et kohe käivituks, siis saan panna <div>{arvutaKokku()}</div>
+  // onClick={reset} ootab käivitust
+  // onClick={() => otsi()} ootab käivitust
+  // {arvutaKokku()} käivitub kohe
+
   return (
     <div>
       <ArraysHome />
+        <div>Hindade koguväärtus: {arvutaKokku()} €</div>
         <br />
         <button onClick={reset}>Reset</button>
+        <br />
+        <input ref={otsingRef} onChange={otsi} placeholder="Otsi hinda" type="text" />
         <div>Kokku {hinnad.length} tk</div>
         <button onClick={sorteeriKasvavalt}>Sorteeri kasvavalt</button>
         <button onClick={sorteeriKahanevalt}>Sorteeri kahanevalt</button>

@@ -1,12 +1,15 @@
 import { useRef, useState } from "react"
 import HaldaHome from "./HaldaHome"
 import esindusedFailist from "../../data/esindused.json"
+import { Link } from "react-router-dom";
 
 function HaldaEsindused() {
   const [esindused, setEsindused] = useState(esindusedFailist);
   const esindusRef = useRef();
   const aadressRef = useRef();
   const telRef = useRef();
+
+  const [unikaalne, setUnikaalne] = useState(true);
 
   const kustuta = (index) => {
     esindusedFailist.splice(index, 1);
@@ -41,16 +44,29 @@ function HaldaEsindused() {
     telRef.current.value = "";
   }
 
+   
+
+  const kasUnikaalne = () => {
+ 
+    const leitud = esindusedFailist.find(esindus => esindus.keskus === esindusRef.current.value);
+    if (leitud === undefined) {
+      setUnikaalne(true);
+    } else {
+      setUnikaalne(false);
+    }
+  }
+
   return (
     <div>
       <HaldaHome />
+      {unikaalne === false && <div className="red">Keskuse nimi on juba olemas!</div>}
       <label>Esindus</label> <br />
-      <input ref={esindusRef} type="text" /> <br />
+      <input onChange={kasUnikaalne} ref={esindusRef} type="text" /> <br />
       <label>Aadress</label> <br />
       <input ref={aadressRef} type="text" /> <br />
       <label>Telefon</label> <br />
       <input ref={telRef} type="number" /> <br />
-      <button onClick={lisa}>Lisa</button> <br />
+      <button disabled={unikaalne === false} onClick={lisa}>Lisa</button> <br />
       <button onClick={() => kustuta(0)}>Kustuta esimene</button>
       <button onClick={() => kustuta(1)}>Kustuta teine</button>
       <button onClick={() => kustuta(2)}>Kustuta kolmas</button>
@@ -63,16 +79,22 @@ function HaldaEsindused() {
               <th>Esinduse telefon</th>
               <th>Esinduse aadress</th>
               <th>Kustuta</th>
+              <th>Muuda</th>
             </tr>
           </thead>
           <tbody>
           {esindused.map((esindus, index) =>
-            <tr key={esindus}>
+            <tr key={esindus.keskus}>
               <td>{index}</td>
               <td>{esindus.keskus}</td>
               <td>{esindus.tel}</td>
               <td>{esindus.aadress}</td>
               <td><button onClick={() => kustuta(index)}>x</button></td>
+              <td>
+                <Link to={"/muuda-esindused/" + index}>
+                  <button>Muuda</button>
+                </Link>
+              </td>
             </tr>)}
           </tbody>
       </table>

@@ -1,14 +1,20 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import ArraysHome from "./ArraysHome";
 import autodFailist from "../../data/autod.json"
 import { Link } from "react-router-dom";
 
 function Autod() {
   const [tooted, setTooted] = useState(autodFailist.slice());
+  const otsingRef = useRef();
 
   // sõnu võrdlen localeCompare
   // numbreid võrdlen üks miinus teine
   // objekte ei saa võrrelda
+
+  const otsi = () => {
+    const vastus = autodFailist.filter(toode => toode.nimi.includes(otsingRef.current.value));
+    setTooted(vastus);
+  }
 
   function reset() {
     setTooted(autodFailist.slice());
@@ -58,10 +64,19 @@ function Autod() {
 
   }
 
+  function arvutaKokku() {
+    let summa = 0;
+    tooted.forEach(toode => summa += toode.hind);
+    return summa;
+  }
+
   return (
     <div>
       <ArraysHome />
+        <div>Autode hinnad kokku: {arvutaKokku()} €</div>
         <button onClick={reset}>Reset</button>
+        <br />
+        <input ref={otsingRef} onChange={otsi} type="text" />
         <div>Toodete koguarv: {tooted.length} tk</div>
         <button onClick={sorteeriAZ}>Sorteeri A-Z</button>
         <button onClick={sorteeriKolmasTahtZA}>Sorteeri kolmas täht Z-A</button>

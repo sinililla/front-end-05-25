@@ -67,18 +67,18 @@ function App() {
           <Route path="/halda-tootajad" element={ <HaldaTootajad /> } />
           <Route path="/halda-tooted" element={ <HaldaTooted /> } />
 
-          <Route path="/muuda-autod" element={ <MuudaAuto /> } />
-          <Route path="/muuda-esindused" element={ <MuudaEsindus /> } />
-          <Route path="/muuda-hinnad" element={ <MuudaHind /> } />
-          <Route path="/muuda-kasutajad" element={ <MuudaKasutaja /> } />
-          <Route path="/muuda-tootajad" element={ <MuudaTootaja /> } />
-          <Route path="/muuda-tooted" element={ <MuudaToode /> } />
+          <Route path="/muuda-auto/:index" element={ <MuudaAuto /> } />
+          <Route path="/muuda-esindused/:index" element={ <MuudaEsindus /> } />
+          <Route path="/muuda-hinnad/:index" element={ <MuudaHind /> } />
+          <Route path="/muuda-kasutajad/:index" element={ <MuudaKasutaja /> } />
+          <Route path="/muuda-tootajad/:index" element={ <MuudaTootaja /> } />
+          <Route path="/muuda-tooted/:index" element={ <MuudaToode /> } />
 
           <Route path="/auto/:mark" element={ <YksAuto /> } />
           <Route path="/esindus/:pood" element={ <YksEsindus /> } />
           <Route path="/hind/:index" element={ <YksHind /> } />
           <Route path="/kasutaja" element={ <YksKasutaja /> } />
-          <Route path="/tootaja" element={ <YksTootaja /> } />
+          <Route path="/tootaja/:tootajaleht" element={ <YksTootaja /> } />
           <Route path="/toode" element={ <YksToode /> } />
 
           <Route path="/*" element={ <NotFound /> } /> 

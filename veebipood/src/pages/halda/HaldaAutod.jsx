@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import HaldaHome from "./HaldaHome"
 import autodFailist from "../../data/autod.json"
+import { Link } from "react-router-dom";
 
 function HaldaAutod() {
   const [autod, setAutod] = useState(autodFailist.slice());
@@ -37,8 +38,8 @@ function HaldaAutod() {
     }
     autodFailist.push({
       "nimi" : nimiRef.current.value, 
-      "hind" : hindRef.current.value, 
-      "aktiivne" : aktiivneRef.current.checked, 
+      "hind" : Number(hindRef.current.value), // kui HTMLis number
+      "aktiivne" : aktiivneRef.current.checked,
       "pilt" : piltRef.current.value
     });
     setAutod(autodFailist.slice());
@@ -53,6 +54,18 @@ function HaldaAutod() {
     setAutod(autodFailist.slice());
   }
 
+  const [unikaalne, setUnikaalne] = useState(true);
+
+  const kasUnikaalne = () => {
+    // YksAuto.jsx --> leidsime auto nime useParams abil
+    const leitud = autodFailist.find(auto => auto.nimi === nimiRef.current.value);
+    if (leitud === undefined) {
+      setUnikaalne(true);
+    } else {
+      setUnikaalne(false);
+    }
+  }
+
   return (
     <div>
       <HaldaHome />
@@ -60,15 +73,16 @@ function HaldaAutod() {
       <button onClick={kustutaTeine}>Kustuta teine</button>
       <button onClick={kustutaKolmas}>Kustuta kolmas</button>
       <button onClick={kustutaNeljas}>Kustuta neljas</button> */}
+      {unikaalne === false && <div className="red">Auto nimi on kellelgi juba olemas!</div>}
       <label>Auto nimi</label> <br />
-      <input ref={nimiRef} type="text" /> <br />
+      <input onChange={kasUnikaalne} ref={nimiRef} type="text" /> <br />
       <label>Auto hind</label> <br />
       <input ref={hindRef} type="number" /> <br />
       <label>Auto pilt</label> <br />
       <input ref={piltRef} type="text" /> <br />
       <label>Auto aktiivne</label> <br />
       <input ref={aktiivneRef} type="checkbox" /> <br />
-      <button onClick={lisa}>Lisa</button> <br />
+      <button disabled={unikaalne === false} onClick={lisa}>Lisa</button> <br />
       <table>
           <thead>
             <tr>
@@ -78,6 +92,7 @@ function HaldaAutod() {
               <th>Auto pilt</th>
               <th>Auto aktiivne</th>
               <th>Kustuta</th>
+              <th>Muuda</th>
             </tr>
           </thead>
           <tbody>
@@ -87,8 +102,13 @@ function HaldaAutod() {
               <td>{auto.nimi}</td>
               <td>{auto.hind}</td>
               <td><img style={{width:"50px", borderRadius: "10px"}} src={auto.pilt} alt="" /></td>
-              <td>{auto.aktiivne}</td>
+              <td>{auto.aktiivne ? "Aktiivne" : "Mitteaktiivne"}</td>
               <td><button onClick={() => kustuta(index)}>x</button></td>
+              <td>
+                <Link to={"/muuda-auto/" + index}>
+                  <button>Muuda</button>
+                </Link>
+              </td>
             </tr>)}
           </tbody>
       </table>
