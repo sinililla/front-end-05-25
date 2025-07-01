@@ -76,7 +76,7 @@ function Autod() {
         <div>Autode hinnad kokku: {arvutaKokku()} €</div>
         <button onClick={reset}>Reset</button>
         <br />
-        <input ref={otsingRef} onChange={otsi} type="text" />
+        <input ref={otsingRef} onChange={otsi} placeholder="Otsi autot" type="text" />
         <div>Toodete koguarv: {tooted.length} tk</div>
         <button onClick={sorteeriAZ}>Sorteeri A-Z</button>
         <button onClick={sorteeriKolmasTahtZA}>Sorteeri kolmas täht Z-A</button>

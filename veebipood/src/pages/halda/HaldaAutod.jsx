@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 
 function HaldaAutod() {
   const [autod, setAutod] = useState(autodFailist.slice());
+  const [unikaalne, setUnikaalne] = useState(true);
   const nimiRef = useRef();
   const hindRef = useRef();
   const piltRef = useRef();
   const aktiivneRef = useRef();
+
 
   // const kustutaEsimene = () => {
   //   // kustutamisel kasutame ainult järjekorranumbrit (indexit)
@@ -54,7 +56,7 @@ function HaldaAutod() {
     setAutod(autodFailist.slice());
   }
 
-  const [unikaalne, setUnikaalne] = useState(true);
+  
 
   const kasUnikaalne = () => {
     // YksAuto.jsx --> leidsime auto nime useParams abil
@@ -103,7 +105,7 @@ function HaldaAutod() {
               <td>{auto.hind}</td>
               <td><img style={{width:"50px", borderRadius: "10px"}} src={auto.pilt} alt="" /></td>
               <td>{auto.aktiivne ? "Aktiivne" : "Mitteaktiivne"}</td>
-              <td><button onClick={() => kustuta(index)}>x</button></td>
+              <td><button className="delete-button" onClick={() => kustuta(index)}>x</button></td>
               <td>
                 <Link to={"/muuda-auto/" + index}>
                   <button>Muuda</button>

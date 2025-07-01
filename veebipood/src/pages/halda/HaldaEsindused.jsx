@@ -89,7 +89,7 @@ function HaldaEsindused() {
               <td>{esindus.keskus}</td>
               <td>{esindus.tel}</td>
               <td>{esindus.aadress}</td>
-              <td><button onClick={() => kustuta(index)}>x</button></td>
+              <td><button className="delete-button" onClick={() => kustuta(index)}>x</button></td>
               <td>
                 <Link to={"/muuda-esindused/" + index}>
                   <button>Muuda</button>

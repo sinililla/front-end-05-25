@@ -39,13 +39,25 @@
 
 table {
   margin: auto;
-  background-color: lightgray;
+  background-color: #FFFFC5;
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1px solid lightcoral;
+  padding: 5px;
 }
 
 .red {
   color: red;
+}
+
+.delete-button {
+  background-color: lightcoral;
+}
+
+.article {
+  background-color: #FFFFC5;
+  border: 2px solid gray;
+  width: 200px;
+  margin: auto;
 }

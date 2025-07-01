@@ -79,7 +79,7 @@ function App() {
           <Route path="/hind/:index" element={ <YksHind /> } />
           <Route path="/kasutaja" element={ <YksKasutaja /> } />
           <Route path="/tootaja/:tootajaleht" element={ <YksTootaja /> } />
-          <Route path="/toode" element={ <YksToode /> } />
+          <Route path="/toode/:artikkel" element={ <YksToode /> } />
 
           <Route path="/*" element={ <NotFound /> } /> 
         </Routes>

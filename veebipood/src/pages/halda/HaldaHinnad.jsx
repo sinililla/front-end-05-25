@@ -52,7 +52,7 @@ function HaldaHinnad() {
               <td>{index}</td>
               <td>{hind.number}</td>
               <td>{hind.sonana}</td>
-              <td><button onClick={() => kustuta(index)}>x</button></td>
+              <td><button className="delete-button" onClick={() => kustuta(index)}>x</button></td>
               <td>
                 <Link to={"/muuda-hinnad/" + index}>
                   <button>Muuda</button>

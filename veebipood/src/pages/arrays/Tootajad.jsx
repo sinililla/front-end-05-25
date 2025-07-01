@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ArraysHome from "./ArraysHome";
 import tootajadFailist from "../../data/tootajad.json"
 import { Link } from "react-router-dom";
 
 function Tootajad() {
   const [tootajad, setTootajad] = useState(tootajadFailist.slice());
+  const otsingRef = useRef();
 
   const sortAZ = () => {
     tootajad.sort((a, b) => a.nimi.localeCompare(b.nimi));
@@ -71,9 +72,23 @@ function Tootajad() {
     setTootajad(vastus);
   }
 
+  const otsi = () => {
+    const vastus = tootajadFailist.filter(tootaja => tootaja.nimi.includes(otsingRef.current.value));
+    setTootajad(vastus);
+  }
+
+  const mituTahte = () => {
+    let summa = 0;
+    tootajadFailist.forEach(tootaja => summa += tootaja.nimi.length);
+    return summa;
+  }
+
   return (
     <div>
       <ArraysHome />
+      <div>Töötajate nimedes tähti kokku: {mituTahte()}</div>
+      <label>Otsing:</label>
+      <input ref={otsingRef} onChange={otsi} placeholder="Otsi töötajat" type="text" />
       <button onClick={sortAZ}>Sorteeri A-Z</button>
       <button onClick={sortZA}>Sorteeri Z-A</button>
       <button onClick={sortKasvavalt}>Tähed kasvavalt</button>
