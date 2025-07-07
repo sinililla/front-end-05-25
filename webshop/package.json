@@ -1,5 +1,5 @@
 {
-  "name": "veebipood",
+  "name": "webshop",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,15 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "bootstrap": "^5.3.7",
-    "firebase": "^11.9.1",
-    "i18next": "^25.2.1",
+    "firebase": "^11.10.0",
+    "i18next": "^25.3.1",
     "react": "^19.1.0",
-    "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
-    "react-i18next": "^15.5.3",
-    "react-router-dom": "^7.6.0",
+    "react-i18next": "^15.6.0",
+    "react-router-dom": "^7.6.3",
     "react-toastify": "^11.0.5"
   },
   "devDependencies": {

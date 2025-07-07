@@ -1,50 +1,32 @@
-import { Link } from "react-router-dom"
-import { useTranslation } from 'react-i18next'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import { Link } from 'react-router-dom'
 
 function Menu() {
-
-  const { t, i18n } = useTranslation();
-  // return <h1>{t('Welcome to React')}</h1>
-
-
   return (
-    <div>
-        <button onClick={() => i18n.changeLanguage("en")}>English</button>
-        <button onClick={() => i18n.changeLanguage("et")}>Eesti</button>
-
-        <Link to="/">
-          <img className="pilt" src="https://cdn.abcotvs.com/dip/images/15072349_071924-wtvd-worlds-largest-duck.jpg" alt="hiiglaslik part" />
-        </Link>
-        
-        <Link to="/ostukorv">
-        <button>{t("menu.cart")}</button>
-        </Link>
-
-        <Link to="/lisa-toode">
-        <button>{t("menu.add-product")}</button>
-        </Link>
-
-        <Link to="/osta-kinkekaart">
-        <button>{t("menu.giftcards")}</button>
-        </Link>
-
-        <Link to="/seaded">
-        <button>{t("menu.settings")}</button>
-        </Link>
-
-        <Link to="/kalkulaator">
-          <button>Kalkulaator</button>
-        </Link>
-
-        <Link to="/arrays-home">
-          <button>Array-d</button>
-        </Link>
-
-        <Link to="/halda-home">
-          <button>Array-sid lisama ja kustutama</button>
-        </Link>
-    </div>
-  )
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand as={Link} to="/">Kaia veebipood</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/ostukorv">Ostukorv</Nav.Link>
+            <Nav.Link as={Link} to="/arrays-home">Arrays</Nav.Link>
+            <Nav.Link as={Link} to="/halda-home">Halda</Nav.Link>
+            <Nav.Link as={Link} to="/osta-kinkekaart">Kinkekaart</Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link as={Link} to="/seaded">Seaded</Nav.Link>
+            <Nav.Link as={Link} to="/kalkulaator">Kalkulaator</Nav.Link>
+            <Nav.Link as={Link} to="/lisa-toode">Lisa toode</Nav.Link>
+            <Nav.Link as={Link} to="/email">Saada email</Nav.Link>
+            <Nav.Link as={Link} to="/api-home">API</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default Menu
+export default Menu;

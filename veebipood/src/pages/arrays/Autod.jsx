@@ -70,6 +70,30 @@ function Autod() {
     return summa;
   }
 
+  function lisaOstukorvi(toode) {
+    // array ostukorvi
+    // varasemalt asendasime koguaeg eelnevalt lisatu
+    // "en" --> "et"  "true" --> "false"
+    // aga nüüd: ["BMW" , "Audi" , ....... ]
+    // 1. võtan varasema seisu et sinna hakata juurde lisama localStorage.getItem abil
+    // 1.b võtan jutumärgid maha: JSON.parse()
+    // 2. lisan ühe juurde
+    // 3. lisame localStorage-sse tagasi: localStorage.setItem()
+    // 3.b lisame jutumärgid tagasi: JSON.stringify()
+    const ostukorvLS = JSON.parse(localStorage.getItem("ostukorv")) || [];
+    ostukorvLS.push(toode);
+    localStorage.setItem("ostukorv", JSON.stringify(ostukorvLS));
+  }
+
+  // = null || []
+  // [].push("BMW");
+  // ["BMW"] --> JSON.stringify ----> "["BMW"]"
+
+  // 2.
+  // = "["BMW"]" -> JSON.parse() ---> ["BMW"]
+  // ["BMW"].push("Audi")
+  // ["BMW", "Audi"] -> JSON.stringify() ----> "["BMW","Audi"]"
+
   return (
     <div>
       <ArraysHome />
@@ -94,6 +118,7 @@ function Autod() {
           <Link to={"/auto/" + toode.nimi}>
             <button>Vt lähemalt</button>
           </Link>
+          <button onClick={() => lisaOstukorvi(toode)}>Lisa ostukorvi</button>
           </div>)}
     </div>
   )

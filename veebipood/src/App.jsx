@@ -34,15 +34,37 @@ import YksKasutaja from './pages/yks/YksKasutaja'
 import YksHind from './pages/yks/YksHind'
 import YksEsindus from './pages/yks/YksEsindus'
 import YksAuto from './pages/yks/YksAuto'
+import { useState } from 'react'
+import { ContactUs } from './pages/ContactUs'
+import ApiHome from './pages/api/ApiHome'
+import ApiAutod from './pages/api/ApiAutod'
+import Riigid from './pages/api/Riigid'
+import Sonastik from './pages/api/Sonastik'
+import Tarnija1 from './pages/api/Tarnija1'
+import Tarnija2 from './pages/api/Tarnija2'
+import Tarnija3 from './pages/api/Tarnija3'
 
 
 function App() {
-  
+  const [tume, setTume] = useState(JSON.parse(localStorage.getItem("tume")));
+
+  const muudaTumedaks = () => {
+    setTume(true);
+    localStorage.setItem("tume", JSON.stringify(true));
+  }
+
+
+   const muudaHeledaks = () => {
+    setTume(false);
+    localStorage.setItem("tume", JSON.stringify(false));
+  }
+
 
   return (
-    <>
+    <div className={tume === true ? "tume" : undefined}>
         <Menu/>
-        
+        <button onClick={muudaTumedaks}>Tumedaks</button>
+        <button onClick={muudaHeledaks}>Heledaks</button>
         <Routes>
           <Route path="/" element={ <Avaleht /> } />
           <Route path="/ostukorv" element={ <Ostukorv /> } />
@@ -81,10 +103,20 @@ function App() {
           <Route path="/tootaja/:tootajaleht" element={ <YksTootaja /> } />
           <Route path="/toode/:artikkel" element={ <YksToode /> } />
 
+          <Route path="/email" element={<ContactUs />} />
+
+          <Route path="/api-home" element={ <ApiHome /> } />
+          <Route path="/api-autod" element={ <ApiAutod /> } />
+          <Route path="/riigid" element={ <Riigid /> } />
+          <Route path="/sonastik" element={ <Sonastik /> } />
+          <Route path="/tarnija1" element={ <Tarnija1 /> } />
+          <Route path="/tarnija2" element={ <Tarnija2 /> } />
+          <Route path="/tarnija3" element={ <Tarnija3 /> } />
+
           <Route path="/*" element={ <NotFound /> } /> 
         </Routes>
         
-    </>
+    </div>
   )
 }
 

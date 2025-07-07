@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px; 
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+th {
+  background-color: aliceblue;
+}
+
+table {
+  border: 2px solid rgb(57, 71, 134);
+  margin-bottom: 5px;
+}
+
+body {
+  background-color: white;
+  margin: auto;
+  max-width: 1280px;
+  border: 5x solid blue;
+}
+

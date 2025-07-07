@@ -1,7 +1,21 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next";
 
 function Ostukorv() {
-  const [tooted, setTooted] = useState(["Coca", "Fanta", "Sprite"]);
+  const [tooted, setTooted] = useState(JSON.parse(localStorage.getItem("ostukorv")) || []);
+  const {t} = useTranslation();
+
+  const tyhjenda = () => {
+    setTooted([]); //HTMLi uuendus
+    localStorage.setItem("ostukorv", "[]"); // uuenda localStorage-t
+  }
+
+  const kustuta = (index) => {
+    tooted.splice(index, 1);
+    setTooted(tooted.slice());
+    localStorage.setItem("ostukorv", JSON.stringify(tooted));
+    
+  }
 
   // <div key={toode}>{toode}</div> <--- key={} mällu jätmiseks, kui re-renderdatakse 
   // re-renderdamine ---> useState setteri kasutamine
@@ -9,11 +23,16 @@ function Ostukorv() {
     <div>
       {tooted.length > 0 &&
       <>
-        <div>Ostukorvis on {tooted.length} eset</div>
-        <button onClick={() => setTooted([])}>Tühjenda</button>
+        <div>{t("cart.cart-has")} {tooted.length} {t("cart.items")}</div>
+        <button onClick={tyhjenda}>{t("cart.empty-button")}</button>
       </>}
-      {tooted.length === 0 && <div>Ostukorv on tühi</div>}
-      {tooted.map(toode => <div key={toode}>{toode}</div>)}
+      {tooted.length === 0 && <div>{t("cart.empty-message")}</div>}
+      {tooted.map((toode, index) => 
+      <div key={index}>
+        {toode.nimi} - {toode.hind}€
+        <button className="delete-button" onClick={() => kustuta(index)}>X</button>
+
+        </div>)}
 
       <br />
       {tooted.length > 0 && <div>Ostukorvi kogusumma xx €</div>}
