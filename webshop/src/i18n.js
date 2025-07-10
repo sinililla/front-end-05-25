@@ -12,6 +12,7 @@ const resources = {
         "admin" : "Admin",
         "cart" : "Cart",
         "email" : "Contact Us",
+        "shops" : "Shops",
       },
       "homepage": {
         "sortAZ" : "Sort A-Z",
@@ -69,6 +70,7 @@ const resources = {
         "admin" : "Haldur",
         "cart" : "Ostukorv",
         "email" : "Võta ühendust",
+        "shops" : "Poed",
       },
       "homepage": {
         "sortAZ" : "Sorteeri A-Z",

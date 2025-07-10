@@ -48,24 +48,30 @@ function HomePage() {
   }
 
   function filterByCategory() {
-    if (selectRef.current.value === "men's clothing"){
-      const result = productsFromFile.filter(product => product.category === "men's clothing");
-      setProducts(result);
-    }
-    if (selectRef.current.value === "women's clothing"){
-      const result = productsFromFile.filter(product => product.category === "women's clothing");
-      setProducts(result);  
-    }
-    if (selectRef.current.value === "jewelery"){
-      const result = productsFromFile.filter(product => product.category === "jewelery");
-      setProducts(result);
-    }
-    if (selectRef.current.value === "electronics"){
-      const result = productsFromFile.filter(product => product.category === "electronics");
-      setProducts(result);
-    }
+    // if (selectRef.current.value === "men's clothing"){
+    //   const result = productsFromFile.filter(product => product.category === "men's clothing");
+    //   setProducts(result);
+    // }
+    // if (selectRef.current.value === "women's clothing"){
+    //   const result = productsFromFile.filter(product => product.category === "women's clothing");
+    //   setProducts(result);  
+    // }
+    // if (selectRef.current.value === "jewelery"){
+    //   const result = productsFromFile.filter(product => product.category === "jewelery");
+    //   setProducts(result);
+    // }
+    // if (selectRef.current.value === "electronics"){
+    //   const result = productsFromFile.filter(product => product.category === "electronics");
+    //   setProducts(result);
+    // }
+    // if (selectRef.current.value === ""){
+    //   setProducts(productsFromFile.slice());
+    // }
     if (selectRef.current.value === ""){
       setProducts(productsFromFile.slice());
+    } else {
+      const result = productsFromFile.filter(product => product.category === selectRef.current.value);
+      setProducts(result);
     }
   }
 

@@ -34,6 +34,7 @@ function NavigationBar() {
               </NavDropdown>
               <Nav.Link as={Link} to="/cart">{t("menu.cart")}</Nav.Link>
               <Nav.Link as={Link} to="/contact">{t("menu.email")}</Nav.Link>
+              <Nav.Link as={Link} to="/shops">{t("menu.shops")}</Nav.Link>
             </Nav>
             <Nav>
               <button onClick={changeLanguageET}>Eesti</button>

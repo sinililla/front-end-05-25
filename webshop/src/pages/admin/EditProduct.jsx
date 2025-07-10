@@ -24,15 +24,15 @@ function EditProduct() {
 
     productsFromFile[index] = 
     {
-      "id" : idRef.current.value, 
+      "id" : Number(idRef.current.value), 
       "title" : titleRef.current.value, 
-      "price" : priceRef.current.value, 
+      "price" : Number(priceRef.current.value), 
       "description" : descRef.current.value,
       "category" : categoryRef.current.value,
       "image" : imageRef.current.value,
        "rating": {
-            "rate": ratingRef.current.value,
-            "count": ratingCountRef.current.value
+            "rate": Number(ratingRef.current.value),
+            "count": Number(ratingCountRef.current.value)
         }
     }
 

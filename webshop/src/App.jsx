@@ -1,6 +1,5 @@
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import NavigationBar from '../../webshop/src/components/NavigationBar'
+import NavigationBar from './components/NavigationBar'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/global/HomePage'
 import ContactUs from './pages/global/ContactUs'
@@ -29,11 +28,11 @@ function App() {
         <Route path="contact" element={ <ContactUs /> } />
         <Route path="shops" element={ <Shops /> } />
         <Route path="cart" element={ <Cart /> } />
-        <Route path="/product/:id" element={ <SingleProduct />} />
+        <Route path="product/:id" element={ <SingleProduct />} />
 
         <Route path="admin" element={ <AdminHome /> } />
         <Route path="admin/add-product" element={ <AddProduct /> } />
-        <Route path="/admin/edit-product/:index" element={ <EditProduct /> } />
+        <Route path="admin/edit-product/:index" element={ <EditProduct /> } />
         <Route path="admin/maintain-products" element={ <MaintainProducts /> } />
         <Route path="admin/maintain-categories" element={ <MaintainCategories /> } />
         <Route path="admin/maintain-shops" element={ <MaintainShops /> } />
@@ -41,7 +40,7 @@ function App() {
         <Route path="login" element={ <Login /> } />
         <Route path="signup" element={ <Signup /> } />
 
-        <Route path="notfound" element={ <NotFound /> } />
+        <Route path="*" element={ <NotFound /> } />
 
       </Routes>
     </div>
