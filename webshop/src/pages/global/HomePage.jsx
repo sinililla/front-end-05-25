@@ -80,26 +80,31 @@ function HomePage() {
       <button onClick={bestFirst}>{t("homepage.bestfirst")}</button>
       <button onClick={worstFirst}>{t("homepage.worstfirst")}</button>
 
-      <label>Choose a category: </label>
+      <label>{t("homepage.choose-category")}</label>
       <select ref={selectRef} onChange={filterByCategory}>
         <option value="">--</option>
-        <option value="men's clothing">Men's clothing</option>
-        <option value="women's clothing">Women's clothing</option>
-        <option value="jewelery">Jewelery</option>
-        <option value="electronics">Electronics</option>
+        <option value="men's clothing">{t("homepage.mens-clothing")}</option>
+        <option value="women's clothing">{t("homepage.womens-clothing")}</option>
+        <option value="jewelery">{t("homepage.jewelery")}</option>
+        <option value="electronics">{t("homepage.electronics")}</option>
       </select>
-
-      {products.map(product =>
-        <div key={product.title}>
-          <img style={{width:"100px"}} src={product.image} alt="" />
-          <div>{product.title}</div>
-          <div>{product.price}€</div>
-          <button onClick={() => addToCart(product)}>{t("homepage.addtocart")}</button>
-          <Link to={"/product/" + product.id}>
-            <button>{t("homepage.moreinfo")}</button>
-          </Link>
-        </div>
-      )}
+      <div className="grid-container">
+        {products.map(product =>
+          <div key={product.title}>
+            <div className="grid-item-preview">
+              <img style={{width:"50%"}} src={product.image} alt="" />
+            </div>
+              <div>{product.title}</div>
+              <div>{product.price}€</div>          
+            <div className="grid-buttons">
+              <button onClick={() => addToCart(product)}>{t("homepage.addtocart")}</button>
+              <Link to={"/product/" + product.id}>
+                <button>{t("homepage.moreinfo")}</button>
+              </Link>
+          </div>
+          </div>      
+        )}
+      </div>
     </div>
   )
 }

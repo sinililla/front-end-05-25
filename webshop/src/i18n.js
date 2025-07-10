@@ -11,6 +11,7 @@ const resources = {
         "home" : "Home",
         "admin" : "Admin",
         "cart" : "Cart",
+        "email" : "Contact Us",
       },
       "homepage": {
         "sortAZ" : "Sort A-Z",
@@ -21,6 +22,11 @@ const resources = {
         "worstfirst" : "Worst first",
         "addtocart" : "Add to cart",
         "moreinfo" : "More info",
+        "choose-category" : "Choose a category: ",
+        "mens-clothing" : "Men's clothing",
+        "womens-clothing" : "Women's clothing",
+        "jewelery" : "Jewelery",
+        "electronics" : "Electronics",
       },
       "admin": {
         "maintain.products" : "Maintain products",
@@ -34,6 +40,25 @@ const resources = {
         "itemstotal" : "item(s), total:",
         "emptycart" : "Empty cart",
         "removefrom" : "Remove from cart",
+      },
+      "email" : {
+        "name" : "Name",
+        "email" : "E-mail",
+        "message" : "Message",
+        "send" : "Send",
+      },
+      "mnt-products" : {
+        "search" : "Search:",
+        "id" : "ID",
+        "title" : "Title",
+        "price" : "Price",
+        "description" : "Description",
+        "category" : "Category",
+        "image" : "Image",
+        "rating" : "Rating",
+        "ratecount" : "Rating count",
+        "delete" : "Delete",
+        "edit" : "Edit",
       }
     }
   },
@@ -43,6 +68,7 @@ const resources = {
         "home" : "Avaleht",
         "admin" : "Haldur",
         "cart" : "Ostukorv",
+        "email" : "Võta ühendust",
       },
       "homepage": {
         "sortAZ" : "Sorteeri A-Z",
@@ -53,6 +79,11 @@ const resources = {
         "worstfirst" : "Halvim enne",
         "addtocart" : "Lisa ostukorvi",
         "moreinfo" : "Vt lähemalt",
+        "choose-category" : "Vali kategooria: ",
+        "mens-clothing" : "Meeste riided",
+        "womens-clothing" : "Naiste riided",
+        "jewelery" : "Ehted",
+        "electronics" : "Elektroonika",
       },
       "admin": {
         "maintain.products" : "Halda tooteid",
@@ -66,6 +97,25 @@ const resources = {
         "itemstotal" : "ese(t), kokku:",
         "emptycart" : "Tühjenda ostukorv",
         "removefrom" : "Eemalda ostukorvist",
+      },
+      "email" : {
+        "name" : "Nimi",
+        "email" : "E-mail",
+        "message" : "Sõnum",
+        "send" : "Saada",
+      },
+      "mnt-products" : {
+        "search" : "Otsing:",
+        "id" : "ID",
+        "title" : "Nimi",
+        "price" : "Hind",
+        "description" : "Kirjeldus",
+        "category" : "Kategooria",
+        "image" : "Pilt",
+        "rating" : "Hinne",
+        "ratecount" : "Hinnete hulk",
+        "delete" : "Kustuta",
+        "edit" : "Muuda",
       }
     }
   }

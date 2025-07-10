@@ -1,27 +1,35 @@
+import { useRef } from "react";
 import { useState } from "react";
 
 function Add() {
   const [ message, setMessage ] = useState("Lisa arvuti!");
-  const [ n2itaNuppu, uuendaN2aitaNuppu ] = useState(true);
+  const markRef = useRef();
+  const mudelRef = useRef();
+  const maksumusRef = useRef();
+
   function addProduct(){
     setMessage("Arvuti lisatud");
-    uuendaN2aitaNuppu(false);
+    const newComputer = {
+      "mark" : markRef.current.value,
+      "mudel" : mudelRef.current.value,
+      "maksumus" : maksumusRef.current.value,
+    }
+
+    const computers = JSON.parse(localStorage.getItem("laptops")) || [];
+    computers.push(newComputer);
+    localStorage.setItem("laptops", JSON.stringify(computers));
   }
-  // return osa sees on alati HTML mis kuvatakse välja sellel lehel
-  // see element peab kindlasti olema üks komplekt (algama ja lõppema sama elemendiga) ((div))
-  // div on tühjus või mõtteta element - seda lisatakse tekstidele ja ümbritsemiseks
-  // label ja input on tavaliselt koos
-  // br tähistab uue rea lisamist, kaks br-i tekitab elementide vahele tühiku
+
   return (
     <div>
       <div>Sõnum: {message}</div>
       <label>Mark</label> <br />
-      <input type="text" /> <br />
+      <input ref={markRef} type="text" /> <br />
       <label>Mudel</label> <br />
-      <input type="text" /> <br />
+      <input ref={mudelRef} type="text" /> <br />
       <label>Maksumus</label> <br />
-      <input type="number" /> <br />
-      {n2itaNuppu === true && <button onClick = {() => addProduct()}>Sisesta</button>}
+      <input ref={maksumusRef} type="number" /> <br />
+      {message === "Lisa arvuti!" && <button onClick = {() => addProduct()}>Sisesta</button>}
 
     </div>
   )

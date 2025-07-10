@@ -1,4 +1,5 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import NavigationBar from '../../webshop/src/components/NavigationBar'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/global/HomePage'

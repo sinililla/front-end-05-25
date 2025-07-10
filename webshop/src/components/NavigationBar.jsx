@@ -1,5 +1,10 @@
-import { Link } from "react-router-dom"
-import { useTranslation } from "react-i18next"
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
+
 
 function NavigationBar() {
   const { t, i18n } = useTranslation();
@@ -16,21 +21,27 @@ function NavigationBar() {
 
   return (
     <>
-        <Link to="">
-            <button>{t("menu.home")}</button>
-        </Link>
-
-        <Link to="/admin">
-            <button>{t("menu.admin")}</button>
-        </Link>
-
-        <Link to="/cart">
-            <button>{t("menu.cart")}</button>
-        </Link>
-
-        <button onClick={changeLanguageEN}>ENG</button>
-
-        <button onClick={changeLanguageET}>EST</button>
+      <Navbar sticky="top" collapseOnSelect expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand as={Link} to="/">Kaia Webshop</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <NavDropdown title={t("menu.admin")} id="collapsible-nav-dropdown">
+                <NavDropdown.Item as={Link} to="admin/maintain-products">{t("admin.maintain.products")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="admin/maintain-categories">{t("admin.maintain.categories")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="admin/maintain-shops">{t("admin.maintain.shops")}</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link as={Link} to="/cart">{t("menu.cart")}</Nav.Link>
+              <Nav.Link as={Link} to="/contact">{t("menu.email")}</Nav.Link>
+            </Nav>
+            <Nav>
+              <button onClick={changeLanguageET}>Eesti</button>
+              <button onClick={changeLanguageEN}>English</button>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   )
 }

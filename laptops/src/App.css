@@ -41,10 +41,10 @@
   color: #888;
 }
 
-.avaleht-text {
-  margin-top: 100px;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bold;
+.rectangle {
+  margin: auto;
+  width: 400px;
+  height: 3px;
+  background-color: black;
 }
 

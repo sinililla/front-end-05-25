@@ -31,15 +31,19 @@ function Cart() {
       <ToastContainer />
       {products.length > 0 && <button onClick={emptyCart}>{t("cart.emptycart")}</button>}
       {products.length === 0 && <div>{t("cart.isempty")}</div>}
-      <div>{t("cart.carthas")} {products.length} {t("cart.itemstotal")} {totalSum()}€</div>
+      <div>{t("cart.carthas")} {products.length} {t("cart.itemstotal")} {totalSum().toFixed(2)}€</div>
       <br />
+      <div className="grid-container">
       {products.map((product, index) => 
         <div key={index}>
-        <img style={{width:"100px"}} src={product.image} alt=""/>
+        <div className="grid-item-preview">
+          <img style={{width:"100px"}} src={product.image} alt=""/>
+        </div>
         <div>{product.title} - {product.price}€</div>
         <button onClick={() => remove(index)}>{t("cart.removefrom")}</button>
 
-        </div>)}    
+        </div>)} 
+      </div>   
     </div>
   )
 }
